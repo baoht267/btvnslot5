@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 7 - Cards Columns</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <style>
+      body {
+        background: #ffffff;
+        color: #212529;
+      }
+
+      .cards-shell {
+        max-width: 1430px;
+      }
+
+      .page-title {
+        margin-bottom: 0.5rem;
+        font-size: clamp(2.25rem, 3.5vw, 3rem);
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .cards-row {
+        --bs-gutter-x: 1.35rem;
+      }
+
+      .demo-card {
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 0.2rem;
+        overflow: hidden;
+      }
+
+      .card-blue {
+        background: #3a79e7;
+      }
+
+      .card-yellow {
+        background: #f9c746;
+      }
+
+      .card-red {
+        background: #cb434c;
+      }
+
+      .demo-card .card-body {
+        padding: 0.82rem 1.2rem 1.35rem;
+      }
+
+      .photo-frame {
+        padding: 0.78rem;
+        background: #ffffff;
+      }
+
+      .car-photo {
+        display: block;
+        width: 75%;
+        margin: 0 auto;
+        height: auto;
+      }
+
+      .card-copy {
+        margin: 0.25rem 0 0;
+        text-align: center;
+        color: #111111;
+        font-size: clamp(0.95rem, 1.2vw, 1.12rem);
+        line-height: 1.25;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container-fluid cards-shell px-0 py-0">
+      <h1 class="page-title">Cards Columns</h1>
+
+      <div class="row row-cols-1 row-cols-lg-3 cards-row g-4">
+        <div class="col">
+            <div class="card demo-card card-blue h-100">
+              <div class="card-body">
+              <div class="photo-frame">
+                <img
+                  src="extracted_docx_images/ex7_assets/car_frame_test.png"
+                  alt="Car"
+                  class="car-photo"
+                />
+              </div>
+              <p class="card-copy">Some text inside the first card</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+            <div class="card demo-card card-yellow h-100">
+              <div class="card-body">
+              <div class="photo-frame">
+                <img
+                  src="extracted_docx_images/ex7_assets/car_frame_test.png"
+                  alt="Car"
+                  class="car-photo"
+                />
+              </div>
+              <p class="card-copy">Some text inside the first card</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+            <div class="card demo-card card-red h-100">
+              <div class="card-body">
+              <div class="photo-frame">
+                <img
+                  src="extracted_docx_images/ex7_assets/car_frame_test.png"
+                  alt="Car"
+                  class="car-photo"
+                />
+              </div>
+              <p class="card-copy">Some text inside the first card</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

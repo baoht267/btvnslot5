@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 5 - Bootstrap 5</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <style>
+      :root {
+        --hero-gray: #dfe4ea;
+        --grid-gray: #dadada;
+        --grid-border: #8b8b8b;
+        --soft-beige: #d4c7c7;
+        --fpt-orange: #f49329;
+        --fpt-cream: #f7d184;
+        --students-top: #eed0a6;
+        --students-orange: #fc922b;
+        --students-footer: #ef7a38;
+      }
+
+      body {
+        background-color: #fff;
+        color: #212529;
+      }
+
+      .exercise-block {
+        margin-bottom: 4rem;
+      }
+
+      .hero-panel,
+      .grid-hero {
+        background: var(--hero-gray);
+        border-radius: 0 0 0.35rem 0.35rem;
+      }
+
+      .hero-panel {
+        padding: 7rem 1rem 7.5rem;
+      }
+
+      .hero-panel h1 {
+        font-size: clamp(3.8rem, 5.8vw, 6rem);
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .logos-row {
+        padding: 4.25rem 0 3rem;
+      }
+
+      .logo-image {
+        width: 100%;
+        max-width: 35rem;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .grid-hero {
+        padding: 6.5rem 4.5rem 7.25rem;
+      }
+
+      .grid-hero h2 {
+        font-size: clamp(3.9rem, 5.5vw, 5.9rem);
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .grid-nav {
+        padding: 3.25rem 2rem 0;
+      }
+
+      .grid-nav .nav-link,
+      .grid-nav .nav-link.disabled {
+        font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+        padding: 0;
+      }
+
+      .grid-wrap {
+        width: min(86.5%, 84rem);
+        margin: 4.25rem auto 0;
+      }
+
+      .grid-box {
+        min-height: 9.25rem;
+        padding: 0.65rem 1.9rem;
+        background: var(--grid-gray);
+        border: 1px solid var(--grid-border);
+        color: #1f3040;
+        font-size: 2.05rem;
+        line-height: 1.15;
+      }
+
+      .big-footer {
+        margin-top: 4rem;
+        padding: 1.3rem 1rem 0.95rem;
+        text-align: center;
+        background: var(--soft-beige);
+      }
+
+      .big-footer h2 {
+        font-size: clamp(4.25rem, 6vw, 5.9rem);
+        font-weight: 500;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .fpt-top {
+        padding: 1.1rem 1rem 1.45rem;
+        text-align: center;
+        background: var(--fpt-orange);
+      }
+
+      .fpt-logo {
+        width: min(100%, 66rem);
+        display: block;
+        margin: 0 auto;
+      }
+
+      .fpt-nav {
+        margin-top: 1rem;
+      }
+
+      .fpt-nav .nav-link {
+        padding: 0;
+        color: #fff;
+        font-size: clamp(1.75rem, 3vw, 2.35rem);
+      }
+
+      .fpt-content {
+        padding: 5.3rem 1rem 4.8rem;
+        text-align: center;
+      }
+
+      .fpt-content h2 {
+        font-size: clamp(3rem, 4.5vw, 4.2rem);
+        font-weight: 700;
+        margin-bottom: 2.8rem;
+      }
+
+      .fpt-content p {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        margin-bottom: 4.6rem;
+      }
+
+      .fpt-bottom {
+        padding: 2rem 1rem;
+        text-align: center;
+        background: var(--fpt-cream);
+        color: #fff;
+        font-size: clamp(1.85rem, 3vw, 2.55rem);
+      }
+
+      .students-topbar {
+        background: var(--students-top);
+      }
+
+      .students-shell {
+        width: min(85%, 112rem);
+        margin: 0 auto;
+      }
+
+      .students-logo {
+        height: 6.2rem;
+        width: auto;
+      }
+
+      .students-menu .nav-link {
+        padding: 0;
+        color: #ef8234;
+        font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+      }
+
+      .menu-icon {
+        display: inline-block;
+        min-width: 1.3em;
+        margin-right: 0.15em;
+      }
+
+      .students-search label {
+        font-size: clamp(1.7rem, 2.4vw, 2.35rem);
+      }
+
+      .students-search input {
+        width: min(100%, 23rem);
+        height: 3.6rem;
+        border: 1px solid #878787;
+        border-radius: 0.15rem;
+      }
+
+      .students-hero {
+        padding: 8.5rem 0 6rem;
+        background: var(--students-orange);
+      }
+
+      .students-banner {
+        width: min(94.4%, 120.5rem);
+        display: block;
+        margin: 0 auto;
+      }
+
+      .students-content {
+        width: min(88%, 115rem);
+        margin: 0 auto;
+        padding: 2.25rem 0 0;
+      }
+
+      .students-breadcrumb .breadcrumb {
+        display: inline-flex;
+        gap: 0.65rem;
+        margin: 0;
+        padding: 1rem 1.8rem;
+        border-radius: 0.4rem;
+        background: #e3eaf2;
+        font-size: clamp(1.5rem, 2.3vw, 2.15rem);
+      }
+
+      .students-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        color: #77879b;
+      }
+
+      .students-breadcrumb .breadcrumb-item a {
+        color: #ef8234;
+        text-decoration: none;
+      }
+
+      .students-breadcrumb .breadcrumb-item.active {
+        color: #6e7c8f;
+      }
+
+      .students-title {
+        margin: 9rem 0 2.75rem;
+        text-align: center;
+        font-size: clamp(3.2rem, 4.8vw, 4.8rem);
+        font-weight: 500;
+      }
+
+      .student-card {
+        border-color: #d8d8d8;
+        border-radius: 0.35rem;
+        overflow: hidden;
+      }
+
+      .student-photo {
+        width: 100%;
+        height: clamp(24rem, 38vw, 43rem);
+        object-fit: cover;
+        object-position: top;
+        display: block;
+      }
+
+      .student-card .card-body {
+        padding: 1.65rem 2.2rem 2.35rem;
+      }
+
+      .student-code {
+        text-align: center;
+        font-size: clamp(2rem, 3vw, 3rem);
+        margin-bottom: 1.55rem;
+      }
+
+      .student-meta {
+        font-size: clamp(1.45rem, 2.4vw, 2rem);
+      }
+
+      .student-options {
+        margin: 0.55rem 0 1.75rem;
+        font-size: clamp(1.45rem, 2.4vw, 2rem);
+      }
+
+      .student-options .form-check-input {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-top: 0.1rem;
+      }
+
+      .btn-student {
+        min-width: 9.4rem;
+        padding: 0.75rem 1.4rem;
+        border: 2px solid #7f7f7f;
+        background: #fb952e;
+        color: #fff;
+        font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+      }
+
+      .students-footer {
+        margin-top: 2.7rem;
+        padding: 3rem 0 2.8rem;
+        background: var(--students-footer);
+      }
+
+      .students-footer h3 {
+        font-size: clamp(2.2rem, 3vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 1.3rem;
+      }
+
+      .students-footer,
+      .students-footer a {
+        color: #1f2631;
+        text-decoration: none;
+      }
+
+      .address-lines {
+        font-size: clamp(1.5rem, 2.3vw, 2rem);
+        line-height: 1.45;
+      }
+
+      .social-row {
+        gap: 1.15rem;
+        font-size: clamp(2.5rem, 3.6vw, 4rem);
+        line-height: 1;
+      }
+
+      .copyright {
+        margin-top: 2.8rem;
+        text-align: center;
+        font-size: clamp(1.8rem, 2.7vw, 2.8rem);
+      }
+
+      @media (max-width: 991.98px) {
+        .grid-hero {
+          padding: 4.5rem 2rem 5rem;
+        }
+
+        .students-shell,
+        .students-content {
+          width: min(94%, 112rem);
+        }
+
+        .students-title {
+          margin-top: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="exercise-block">
+      <div class="hero-panel text-center">
+        <h1>My First Bootstrap Page</h1>
+      </div>
+      <div class="container logos-row">
+        <div class="row align-items-center g-4 text-center">
+          <div class="col-md-4">
+            <img
+              src="extracted_docx_images/ex5_assets/logo_html5.png"
+              alt="HTML5 logo"
+              class="logo-image"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="extracted_docx_images/ex5_assets/logo_css3.png"
+              alt="CSS3 logo"
+              class="logo-image"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="extracted_docx_images/ex5_assets/logo_bootstrap.png"
+              alt="Bootstrap logo"
+              class="logo-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="exercise-block">
+      <div class="grid-hero">
+        <h2>Let&apos;s test the grid!</h2>
+      </div>
+      <div class="grid-wrap">
+        <div class="row g-0">
+          <div class="col-6">
+            <div class="grid-box">First col</div>
+          </div>
+          <div class="col-6">
+            <div class="grid-box">Second col</div>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-4">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-4">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-4">
+            <div class="grid-box">col</div>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+        </div>
+      </div>
+      <div class="big-footer">
+        <h2>Created by ABC!</h2>
+      </div>
+    </section>
+
+    <section class="exercise-block">
+      <div class="grid-hero">
+        <h2>Let&apos;s test the grid!</h2>
+      </div>
+      <div class="grid-nav">
+        <ul class="nav gap-5">
+          <li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+          <li class="nav-item"><span class="nav-link disabled">Disabled</span></li>
+        </ul>
+      </div>
+      <div class="grid-wrap">
+        <div class="row g-0">
+          <div class="col-6">
+            <div class="grid-box">First col</div>
+          </div>
+          <div class="col-6">
+            <div class="grid-box">Second col</div>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-4">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-4">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-4">
+            <div class="grid-box">col</div>
+          </div>
+        </div>
+        <div class="row g-0">
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+          <div class="col-3">
+            <div class="grid-box">col</div>
+          </div>
+        </div>
+      </div>
+      <div class="big-footer">
+        <h2>Created by ABC!</h2>
+      </div>
+    </section>
+
+    <section class="exercise-block">
+      <div class="fpt-top">
+        <img
+          src="extracted_docx_images/ex5_image6.jpg"
+          alt="FPT University"
+          class="fpt-logo"
+        />
+        <ul class="nav justify-content-center gap-4 gap-md-5 fpt-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fpt-content">
+        <h2>About</h2>
+        <p>This is the about section of the website.</p>
+        <h2>Contact</h2>
+        <p class="mb-0">For any inquiries, please contact us at example@example.com.</p>
+      </div>
+      <div class="fpt-bottom">&copy; 2023 Website. All rights reserved.</div>
+    </section>
+
+    <section class="exercise-block mb-0">
+      <div class="students-topbar py-3 py-lg-4">
+        <div class="students-shell">
+          <div class="row align-items-center g-4">
+            <div class="col-xl-8">
+              <div class="d-flex flex-wrap align-items-center gap-4 gap-lg-5">
+                <img
+                  src="extracted_docx_images/ex5_image6.jpg"
+                  alt="FPT University"
+                  class="students-logo"
+                />
+                <nav class="nav flex-wrap gap-3 gap-lg-4 students-menu">
+                  <a class="nav-link" href="#"><span class="menu-icon">&#8962;</span>Trang ch&#7911;</a>
+                  <a class="nav-link" href="#"><span class="menu-icon">&#8505;</span>Ng&#224;nh h&#7885;c</a>
+                  <a class="nav-link" href="#"><span class="menu-icon">&#128179;</span>Tuy&#7875;n sinh</a>
+                  <a class="nav-link" href="#"><span class="menu-icon">&#9776;</span>Sinh vi&#234;n</a>
+                </nav>
+              </div>
+            </div>
+            <div class="col-xl-4">
+              <form class="students-search d-flex align-items-center justify-content-xl-end gap-3">
+                <label for="searchBox" class="mb-0">Search:</label>
+                <input id="searchBox" type="search" class="form-control shadow-none" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="students-hero">
+        <img
+          src="extracted_docx_images/ex5_assets/students_banner.png"
+          alt="FPT students"
+          class="students-banner"
+        />
+      </div>
+
+      <div class="students-content">
+        <nav aria-label="breadcrumb" class="students-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Students</li>
+          </ol>
+        </nav>
+
+        <h2 class="students-title">Students Detail</h2>
+
+        <div class="row row-cols-1 row-cols-lg-2 g-4">
+          <div class="col">
+            <div class="card student-card h-100">
+              <img
+                src="extracted_docx_images/ex5_assets/student_1.png"
+                alt="DE160182"
+                class="student-photo"
+              />
+              <div class="card-body">
+                <div class="student-code">DE160182</div>
+                <div class="row student-meta mb-2">
+                  <div class="col-7">Nguy&#7877;n H&#7919;u Qu&#7889;c Kh&#225;nh</div>
+                  <div class="col-5 text-end">DaNang</div>
+                </div>
+                <div class="row student-options text-center align-items-center">
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student1" id="student1Absent" />
+                      <label class="form-check-label" for="student1Absent">Absent</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student1" id="student1Present" />
+                      <label class="form-check-label" for="student1Present">Present</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-student" type="button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card student-card h-100">
+              <img
+                src="extracted_docx_images/ex5_assets/student_2.png"
+                alt="DE160377"
+                class="student-photo"
+              />
+              <div class="card-body">
+                <div class="student-code">DE160377</div>
+                <div class="row student-meta mb-2">
+                  <div class="col-7">Choy V&#297;nh Thi&#7879;n</div>
+                  <div class="col-5 text-end">QuangNam</div>
+                </div>
+                <div class="row student-options text-center align-items-center">
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student2" id="student2Absent" />
+                      <label class="form-check-label" for="student2Absent">Absent</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student2" id="student2Present" />
+                      <label class="form-check-label" for="student2Present">Present</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-student" type="button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card student-card h-100">
+              <img
+                src="extracted_docx_images/ex5_assets/student_3.png"
+                alt="DE160547"
+                class="student-photo"
+              />
+              <div class="card-body">
+                <div class="student-code">DE160547</div>
+                <div class="row student-meta mb-2">
+                  <div class="col-7">&#272;&#7895; Nguy&#7877;n Ph&#250;c</div>
+                  <div class="col-5 text-end">QuangNam</div>
+                </div>
+                <div class="row student-options text-center align-items-center">
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student3" id="student3Absent" />
+                      <label class="form-check-label" for="student3Absent">Absent</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student3" id="student3Present" />
+                      <label class="form-check-label" for="student3Present">Present</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-student" type="button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card student-card h-100">
+              <img
+                src="extracted_docx_images/ex5_assets/student_4.png"
+                alt="DE170049"
+                class="student-photo"
+              />
+              <div class="card-body">
+                <div class="student-code">DE170049</div>
+                <div class="row student-meta mb-2">
+                  <div class="col-7">L&#234; Ho&#224;ng Minh</div>
+                  <div class="col-5 text-end">DaNang</div>
+                </div>
+                <div class="row student-options text-center align-items-center">
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student4" id="student4Absent" />
+                      <label class="form-check-label" for="student4Absent">Absent</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check d-inline-flex align-items-center gap-2">
+                      <input class="form-check-input" type="radio" name="student4" id="student4Present" />
+                      <label class="form-check-label" for="student4Present">Present</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-student" type="button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="students-footer">
+        <div class="students-content pt-0">
+          <div class="row align-items-start g-4">
+            <div class="col-lg-6">
+              <h3>Our Address</h3>
+              <div class="address-lines">
+                <div>Khu &#273;&#244; th&#7883; FPT &#272;&#224; N&#7861;ng</div>
+                <div>&#9742; +84023111111</div>
+                <div>&#128241; +852 8765 4321</div>
+                <div><a href="mailto:fptudn@fpt.edu.vn">&#9993; fptudn@fpt.edu.vn</a></div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="d-flex justify-content-lg-center justify-content-start social-row">
+                <span>G+</span>
+                <span>f</span>
+                <span>in</span>
+                <span>t</span>
+                <span>Y</span>
+                <span>&#9993;</span>
+              </div>
+              <div class="copyright">&copy; Copyright 2023</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

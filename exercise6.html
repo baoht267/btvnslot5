@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 6 - Build Website Layout</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <style>
+      body {
+        background: #ffffff;
+        color: #212529;
+      }
+
+      .page-shell {
+        max-width: 1240px;
+      }
+
+      .demo-navbar {
+        min-height: 52px;
+      }
+
+      .demo-navbar .navbar-brand,
+      .demo-navbar .nav-link,
+      .demo-navbar .btn,
+      .demo-navbar .form-control {
+        font-size: 0.875rem;
+      }
+
+      .hero-carousel {
+        margin-top: 0.15rem;
+      }
+
+      .hero-placeholder {
+        height: clamp(260px, 33vw, 530px);
+        background: #d7d7d7;
+        color: #9a9a9a;
+        font-size: clamp(4rem, 8vw, 7.5rem);
+        font-weight: 400;
+      }
+
+      .hero-carousel .carousel-indicators {
+        margin-bottom: 0.55rem;
+      }
+
+      .hero-carousel .carousel-indicators [data-bs-target] {
+        width: 20px;
+        height: 4px;
+        margin-right: 4px;
+        margin-left: 4px;
+      }
+
+      .hero-carousel .carousel-control-prev,
+      .hero-carousel .carousel-control-next {
+        width: 8%;
+      }
+
+      .products-section {
+        max-width: 930px;
+        padding-top: 2.1rem;
+      }
+
+      .products-title {
+        margin-bottom: 0;
+        color: #565656;
+        font-size: 2.05rem;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+      }
+
+      .products-subtitle {
+        margin-bottom: 1rem;
+        color: #b8b8b8;
+        font-size: 0.82rem;
+      }
+
+      .product-card {
+        border-color: #ededed;
+        border-radius: 0;
+      }
+
+      .product-thumb {
+        height: 280px;
+        background: #d7d7d7;
+        color: #9b9b9b;
+        font-size: 1.85rem;
+      }
+
+      .product-card .card-body {
+        padding: 0.95rem 0.72rem 0.45rem;
+      }
+
+      .product-name {
+        margin-bottom: 0.25rem;
+        color: #8f8f8f;
+        font-size: 0.92rem;
+      }
+
+      .price-row {
+        margin-bottom: 0.5rem;
+        font-size: 0.72rem;
+        line-height: 1;
+      }
+
+      .old-price {
+        color: #8d8d8d;
+      }
+
+      .new-price {
+        color: #ef9d3d;
+      }
+
+      .product-card .card-footer {
+        padding: 0 0.72rem 0.8rem;
+        background: #fff;
+        border-top: 0;
+      }
+
+      .view-btn {
+        padding: 0.22rem 0.45rem;
+        border-color: #c7c7c7;
+        border-radius: 0;
+        color: #8d8d8d;
+        font-size: 0.72rem;
+      }
+
+      .cart-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.4rem;
+        height: 1.3rem;
+        margin-right: 0.28rem;
+        background: #4e77a8;
+        color: #fff;
+        font-size: 0.7rem;
+        line-height: 1;
+      }
+
+      .sale-card {
+        overflow: hidden;
+      }
+
+      .sale-ribbon {
+        position: absolute;
+        top: 0.68rem;
+        right: -1.2rem;
+        padding: 0.12rem 1.2rem;
+        transform: rotate(45deg);
+        background: #f5a12e;
+        color: #fff;
+        font-size: 0.8rem;
+        line-height: 1.1;
+      }
+
+      @media (max-width: 767.98px) {
+        .products-section {
+          padding-top: 1.5rem;
+        }
+
+        .product-thumb {
+          height: 240px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid page-shell py-1">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border demo-navbar">
+        <div class="container-fluid px-3">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#demoNavbar"
+            aria-controls="demoNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="demoNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control form-control-sm me-2 rounded-0" type="search" placeholder="Search" />
+              <button class="btn btn-outline-primary btn-sm rounded-0" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="hero-placeholder d-flex align-items-center justify-content-center">1920 x 530</div>
+          </div>
+          <div class="carousel-item">
+            <div class="hero-placeholder d-flex align-items-center justify-content-center">1920 x 530</div>
+          </div>
+          <div class="carousel-item">
+            <div class="hero-placeholder d-flex align-items-center justify-content-center">1920 x 530</div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <section class="products-section mx-auto">
+        <h1 class="products-title">NEW PRODUCT</h1>
+        <p class="products-subtitle">List product description</p>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="card product-card h-100">
+              <div class="product-thumb d-flex align-items-center justify-content-center">280 x 280</div>
+              <div class="card-body">
+                <div class="product-name">Product</div>
+                <div class="d-flex justify-content-between align-items-center price-row">
+                  <span class="old-price text-decoration-line-through">100,000 vnd</span>
+                  <span class="new-price">80,000 vnd</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-outline-secondary view-btn" type="button">
+                  <span class="cart-chip">&#128722;</span>
+                  Xem chi ti&#7871;t
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card product-card h-100">
+              <div class="product-thumb d-flex align-items-center justify-content-center">280 x 280</div>
+              <div class="card-body">
+                <div class="product-name">Product</div>
+                <div class="d-flex justify-content-between align-items-center price-row">
+                  <span class="old-price text-decoration-line-through">100,000 vnd</span>
+                  <span class="new-price">80,000 vnd</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-outline-secondary view-btn" type="button">
+                  <span class="cart-chip">&#128722;</span>
+                  Xem chi ti&#7871;t
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card product-card h-100">
+              <div class="product-thumb d-flex align-items-center justify-content-center">280 x 280</div>
+              <div class="card-body">
+                <div class="product-name">Product</div>
+                <div class="d-flex justify-content-between align-items-center price-row">
+                  <span class="old-price text-decoration-line-through">100,000 vnd</span>
+                  <span class="new-price">80,000 vnd</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-outline-secondary view-btn" type="button">
+                  <span class="cart-chip">&#128722;</span>
+                  Xem chi ti&#7871;t
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card product-card sale-card h-100 position-relative">
+              <span class="sale-ribbon">Sale</span>
+              <div class="product-thumb d-flex align-items-center justify-content-center">280 x 280</div>
+              <div class="card-body">
+                <div class="product-name">Product</div>
+                <div class="d-flex justify-content-between align-items-center price-row">
+                  <span class="old-price text-decoration-line-through">100,000 vnd</span>
+                  <span class="new-price">80,000 vnd</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-outline-secondary view-btn" type="button">
+                  <span class="cart-chip">&#128722;</span>
+                  Xem chi ti&#7871;t
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

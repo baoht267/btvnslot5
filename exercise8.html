@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 8 - Form dat ve may bay</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <style>
+      body {
+        background: #ffffff;
+      }
+
+      .page-shell {
+        max-width: 620px;
+        margin: 0;
+        border: 1px solid #212529;
+        background: #ffffff;
+      }
+
+      .form-wrap {
+        padding: 0.2rem 0.8rem 1rem;
+      }
+
+      .top-alert {
+        min-height: 2rem;
+        margin: 0.05rem 0 1rem;
+        padding: 0.45rem 2.3rem 0.45rem 0.75rem;
+        border: 1px solid #fae7a6;
+        background: #fff5cf;
+      }
+
+      .top-alert .btn-close {
+        top: 0.35rem;
+        right: 0.55rem;
+        padding: 0.6rem;
+        opacity: 0.7;
+      }
+
+      .form-title {
+        margin-bottom: 0.75rem;
+        font-size: clamp(2.5rem, 5vw, 4.1rem);
+        font-weight: 500;
+        line-height: 1.05;
+      }
+
+      .form-label {
+        margin-bottom: 0.45rem;
+        color: #202020;
+        font-size: 1rem;
+      }
+
+      .input-group-text,
+      .form-control,
+      .form-select {
+        height: 2.65rem;
+        font-size: 0.95rem;
+      }
+
+      .input-icon {
+        width: 3.1rem;
+        justify-content: center;
+        color: #7a7a7a;
+      }
+
+      .input-icon svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        stroke: currentColor;
+      }
+
+      .append-text {
+        min-width: 4.2rem;
+        justify-content: center;
+        color: #4f6174;
+      }
+
+      .help-text {
+        margin-top: 0.25rem;
+        color: #6f7f92;
+        font-size: 0.72rem;
+      }
+
+      .gap-section {
+        margin-bottom: 1rem;
+      }
+
+      .trip-checks .form-check {
+        margin-bottom: 0.18rem;
+      }
+
+      .trip-checks .form-check-input {
+        margin-top: 0.28rem;
+      }
+
+      .submit-btn {
+        margin-top: 0.2rem;
+        padding-block: 0.62rem;
+        font-size: 0.98rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="form-wrap">
+        <div class="alert alert-warning alert-dismissible fade show top-alert" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <form>
+          <h1 class="form-title">Form &#273;&#7863;t v&#233; m&#225;y bay</h1>
+
+          <div class="gap-section">
+            <label for="fullName" class="form-label">H&#7885; t&#234;n</label>
+            <div class="input-group">
+              <span class="input-group-text input-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.5 12.5V11.75C11.5 10.2312 10.2688 9 8.75 9H7.25C5.73122 9 4.5 10.2312 4.5 11.75V12.5"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M8 7.5C9.51878 7.5 10.75 6.26878 10.75 4.75C10.75 3.23122 9.51878 2 8 2C6.48122 2 5.25 3.23122 5.25 4.75C5.25 6.26878 6.48122 7.5 8 7.5Z"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <input
+                type="text"
+                class="form-control"
+                id="fullName"
+                placeholder="H&#7885; t&#234;n"
+              />
+              <span class="input-group-text append-text">vn&#273;</span>
+            </div>
+            <div class="help-text">Ph&#7843;i nh&#7853;p 5 k&#253; t&#7921;, in hoa....</div>
+          </div>
+
+          <div class="gap-section">
+            <label for="address" class="form-label">&#272;&#7883;a ch&#7881;</label>
+            <input type="text" class="form-control" id="address" />
+            <div class="help-text">Ph&#7843;i nh&#7853;p 5 k&#253; t&#7921;, in hoa....</div>
+          </div>
+
+          <div class="row gap-section">
+            <div class="col-6">
+              <label for="departure" class="form-label">&#272;i t&#7915;</label>
+              <select id="departure" class="form-select">
+                <option selected>H&#224; n&#7897;i</option>
+                <option>&#272;&#224; N&#7861;ng</option>
+                <option>H&#7891; Ch&#237; Minh</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="destination" class="form-label">&#272;&#7871;n</label>
+              <select id="destination" class="form-select">
+                <option selected>H&#224; n&#7897;i</option>
+                <option>&#272;&#224; N&#7861;ng</option>
+                <option>H&#7891; Ch&#237; Minh</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="gap-section trip-checks">
+            <legend class="form-label mb-2">Ch&#7885;n chi&#7873;u &#273;i (Kh&#7913; h&#7891;i)</legend>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="tripGo" />
+              <label class="form-check-label" for="tripGo">&#272;i</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="tripBack" />
+              <label class="form-check-label" for="tripBack">V&#7873;</label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary w-100 submit-btn">
+            &#272;&#7863;t v&#233;
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
