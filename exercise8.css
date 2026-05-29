@@ -1,0 +1,91 @@
+body {
+  background: #ffffff;
+}
+
+.page-shell {
+  max-width: 620px;
+  margin: 0;
+  border: 1px solid #212529;
+  background: #ffffff;
+}
+
+.form-wrap {
+  padding: 0.2rem 0.8rem 1rem;
+}
+
+.top-alert {
+  min-height: 2rem;
+  margin: 0.05rem 0 1rem;
+  padding: 0.45rem 2.3rem 0.45rem 0.75rem;
+  border: 1px solid #fae7a6;
+  background: #fff5cf;
+}
+
+.top-alert .btn-close {
+  top: 0.35rem;
+  right: 0.55rem;
+  padding: 0.6rem;
+  opacity: 0.7;
+}
+
+.form-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2.5rem, 5vw, 4.1rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.form-label {
+  margin-bottom: 0.45rem;
+  color: #202020;
+  font-size: 1rem;
+}
+
+.input-group-text,
+.form-control,
+.form-select {
+  height: 2.65rem;
+  font-size: 0.95rem;
+}
+
+.input-icon {
+  width: 3.1rem;
+  justify-content: center;
+  color: #7a7a7a;
+}
+
+.input-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  stroke: currentColor;
+}
+
+.append-text {
+  min-width: 4.2rem;
+  justify-content: center;
+  color: #4f6174;
+}
+
+.help-text {
+  margin-top: 0.25rem;
+  color: #6f7f92;
+  font-size: 0.72rem;
+}
+
+.gap-section {
+  margin-bottom: 1rem;
+}
+
+.trip-checks .form-check {
+  margin-bottom: 0.18rem;
+}
+
+.trip-checks .form-check-input {
+  margin-top: 0.28rem;
+}
+
+.submit-btn {
+  margin-top: 0.2rem;
+  padding-block: 0.62rem;
+  font-size: 0.98rem;
+}
